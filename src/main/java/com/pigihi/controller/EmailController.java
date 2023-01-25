@@ -9,8 +9,10 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.google.gson.Gson;
 import com.pigihi.model.MessageModel;
 import com.pigihi.service.EmailSenderServiceInterface;
+import com.pigihi.service.StatusEnum;
 
 /**
  * Controller class for sending emails
@@ -25,13 +27,25 @@ public class EmailController {
 	@Autowired
 	private EmailSenderServiceInterface emailSenderService;
 	
+	/**
+	 * Handles API request for sending emails
+	 * 
+	 * @param messageModel
+	 * @return JSON string showing the status code
+	 * 
+	 * @see MessageModel
+	 * 
+	 */
 	@PostMapping("email")
 	public String sendMail(@RequestBody MessageModel messageModel) {
 		
-		String sendStatus = emailSenderService.sendEmail(messageModel.getEmailSendTo(), 
+		StatusEnum sendStatus = emailSenderService.sendEmail(messageModel.getEmailSendTo(), 
 				messageModel.getEmailSubject(), 
 				messageModel.getEmailBody());
-		return sendStatus;
+		Gson gson = new Gson();
+		int statusCode = sendStatus.statusCode;
+		String statusResponse = gson.toJson(statusCode);
+		return statusResponse;
 	}
 
 }

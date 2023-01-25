@@ -9,7 +9,7 @@ import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Service;
 
 /**
- * Implementation class of Email sender service
+ * Implementation class of Email sender service interface
  * 
  * @author Ashish Sam T George
  *
@@ -20,8 +20,16 @@ public class EmailSenderServiceImpl implements EmailSenderServiceInterface {
 	@Autowired
 	private JavaMailSender javaMailSender;
 	
+	/**
+	 * Handles sending emails
+	 * 
+	 * @param receiver String representing email address of receiver
+	 * @param subject String representing subject of the email
+	 * @param body String representing body of the email
+	 * 
+	 */
 	@Override
-	public String sendEmail(String receiver, String subject, String body) {
+	public StatusEnum sendEmail(String receiver, String subject, String body) {
 		SimpleMailMessage message = new SimpleMailMessage();
 		//TODO Take this from files like .env or .yml
 		message.setFrom("cloudstoreaggregation@gmail.com");
@@ -31,7 +39,8 @@ public class EmailSenderServiceImpl implements EmailSenderServiceInterface {
 		javaMailSender.send(message);
 		System.out.println("Mail Sent...");
 		//TODO Return something more standard
-		return "Success";
+//		return "Success";
+		return StatusEnum.SUCCESS;
 		
 	}
 

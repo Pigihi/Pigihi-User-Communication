@@ -4,13 +4,13 @@
 package com.pigihi.service;
 
 /**
- * 
+ * Interface for sending emails
  * 
  * @author Ashish Sam T George
  *
  */
 public interface EmailSenderServiceInterface {
 
-	String sendEmail(String receiver, String subject, String body);
+	StatusEnum sendEmail(String receiver, String subject, String body);
 
 }
