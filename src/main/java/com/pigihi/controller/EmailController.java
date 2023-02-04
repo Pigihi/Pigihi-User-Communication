@@ -4,6 +4,7 @@
 package com.pigihi.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -21,7 +22,8 @@ import com.pigihi.service.StatusEnum;
  *
  */
 @RestController
-@RequestMapping("/send")
+@CrossOrigin("*")
+@RequestMapping("/sendEmail")
 public class EmailController {
 	
 	@Autowired
@@ -35,8 +37,10 @@ public class EmailController {
 	 * 
 	 * @see MessageModel
 	 * 
+	 * @author Ashish Sam T George
+	 * 
 	 */
-	@PostMapping("email")
+	@PostMapping
 	public String sendMail(@RequestBody MessageModel messageModel) {
 		
 		StatusEnum sendStatus = emailSenderService.sendEmail(messageModel.getEmailSendTo(), 
