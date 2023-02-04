@@ -26,6 +26,11 @@ public class EmailSenderServiceImpl implements EmailSenderServiceInterface {
 	 * @param receiver String representing email address of receiver
 	 * @param subject String representing subject of the email
 	 * @param body String representing body of the email
+	 * @return StatusEnum
+	 * 
+	 * @see StatusEnum
+	 * 
+	 * @author Ashish Sam T George
 	 * 
 	 */
 	@Override

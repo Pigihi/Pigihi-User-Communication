@@ -37,6 +37,8 @@ public class EmailController {
 	 * 
 	 * @see MessageModel
 	 * 
+	 * @author Ashish Sam T George
+	 * 
 	 */
 	@PostMapping
 	public String sendMail(@RequestBody MessageModel messageModel) {
