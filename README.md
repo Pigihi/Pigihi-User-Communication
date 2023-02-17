@@ -52,3 +52,7 @@ spring:
 ```
 
 ## Local Deployment
+In Linux,
+
+1. Open terminal and run `docker-compose up`
+2. The application can be accessed at localhost:8096 (port 8096 is set in docker-compose)
