@@ -1,0 +1,20 @@
+version: "3.3"
+
+services:
+  user-communication-service:
+    container_name: user-communication-service-v0.1
+    image: user-communication-service-v0.1-image
+    build: .
+    volumes:
+      - .:/app
+    ports:
+      - 8096:8080
+    restart: always
+
+volumes:
+  mongo-volume:
+
+networks:
+  default:
+    external:
+      name: pigihi-network
