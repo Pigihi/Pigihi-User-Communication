@@ -1,16 +1,28 @@
+eureka_hostname: service-registry
+#mongodb_hostname: auth-db
+
+# Production environment
+#mongodb_database_name: authDB
+
+# Development environment
+#mongodb_database_name: devAuthDB
+
+# Test environment
+#mongodb_database_name: testAuthDB
+
 # Eureka properties 
 eureka:
   client:
     fetch-registry: true
     register-with-eureka: true
     service-url:
-      defaultZone: http://service-registry:8761/eureka
+      defaultZone: http://${eureka_hostname}:8761/eureka
   instance:
     hostname: localhost
 
 # Server properties
 server:
-  port: 8080
+  port: 8096
 
 # Application properties
 spring:
@@ -28,3 +40,5 @@ spring:
           starttls:
             enable: true
     username: cloudstoreaggregation@gmail.com
+  config:
+    import: optional:settings.yml
