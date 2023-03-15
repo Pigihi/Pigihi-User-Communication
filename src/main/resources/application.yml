@@ -2,15 +2,8 @@ eureka_hostname: service-registry
 
 service_hostname: user-communication-service
 
-#mongodb_hostname: auth-db
-
-# Production environment
-#mongodb_database_name: authDB
-
-# Development environment
-#mongodb_database_name: devAuthDB
-
 # Test environment
+#mongodb_hostname: auth-db
 #mongodb_database_name: testAuthDB
 
 # Eureka properties 
@@ -45,3 +38,5 @@ spring:
     username: cloudstoreaggregation@gmail.com
   config:
     import: optional:settings.yml
+  profiles:
+    active: standalone

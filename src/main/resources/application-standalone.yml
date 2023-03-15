@@ -1,0 +1,13 @@
+# Standalone environment
+
+eureka_hostname: service-registry
+
+service_hostname: user-communication-service
+
+#mongodb_hostname: localhost
+#mongodb_database_name: testWorkingDB
+
+# Eureka properties 
+eureka:
+  client:
+    enabled: false
